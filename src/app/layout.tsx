@@ -5,6 +5,7 @@ import CustomCursor from '@/components/CustomCursor';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWA from '@/components/FloatingWA';
+import ChatBot from '@/components/chatbot/ChatBot';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -62,6 +63,7 @@ export default function RootLayout({
         
         <Footer />
         <FloatingWA />
+        <ChatBot />
       </body>
     </html>
   );
