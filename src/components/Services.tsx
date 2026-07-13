@@ -4,168 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import { MessageSquare, Globe, Bot, UserCheck, Search, Send, MapPin, Share2, Database, PhoneCall, Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const services = [
-  {
-    icon: MessageSquare,
-    title: 'WhatsApp Automation',
-    price: '₹4,999',
-    tag: 'Most Popular',
-    description: 'Turn WhatsApp into your 24/7 sales team. Instantly respond to every inquiry, capture leads, book appointments, and send broadcast promotions — all automated. Never miss a customer again.',
-    bg: 'bg-gradient-to-br from-[#003d1a] to-[#001a0d]',
-    border: 'border-emerald-500/30',
-    iconBg: 'bg-emerald-500/15 border-emerald-500/30',
-    iconColor: 'text-emerald-400',
-    tagBg: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
-    checkColor: 'text-emerald-400',
-    ctaColor: 'text-emerald-400',
-    theme: 'emerald',
-    features: ['Auto Replies & FAQ Bot', 'Lead Collection System', 'Appointment Booking Flow', 'Broadcast Campaigns', 'Automated Follow-Ups'],
-  },
-  {
-    icon: Globe,
-    title: 'Premium Website',
-    price: '₹9,999',
-    tag: 'Foundation',
-    description: 'Your digital storefront — built to convert visitors into paying customers. Fast-loading, mobile-first, SEO-ready websites that look world-class and generate real inquiries for your business.',
-    bg: 'bg-gradient-to-br from-[#001a3d] to-[#000d1a]',
-    border: 'border-blue-500/30',
-    iconBg: 'bg-blue-500/15 border-blue-500/30',
-    iconColor: 'text-blue-400',
-    tagBg: 'bg-blue-500/15 text-blue-300 border-blue-500/30',
-    checkColor: 'text-blue-400',
-    ctaColor: 'text-blue-400',
-    theme: 'blue',
-    features: ['Fully Mobile Responsive', 'Ultra-Fast Loading (<2s)', 'SEO Architecture Ready', 'Lead Capture Forms', 'Modern UI/UX Design'],
-  },
-  {
-    icon: Bot,
-    title: 'AI Chatbots',
-    price: '₹7,999',
-    tag: 'Always On',
-    description: 'An intelligent AI assistant that answers questions, qualifies leads, and guides customers to purchase — 24/7 across your website, WhatsApp, Instagram and Facebook simultaneously.',
-    bg: 'bg-gradient-to-br from-[#16003d] to-[#0a001a]',
-    border: 'border-indigo-500/30',
-    iconBg: 'bg-indigo-500/15 border-indigo-500/30',
-    iconColor: 'text-indigo-400',
-    tagBg: 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30',
-    checkColor: 'text-indigo-400',
-    ctaColor: 'text-indigo-400',
-    theme: 'indigo',
-    features: ['Website Chat Widget', 'WhatsApp Integration', 'Instagram & Facebook', 'Lead Qualification', '24/7 Always On'],
-  },
-  {
-    icon: UserCheck,
-    title: 'AI Business Agents',
-    price: '₹14,999',
-    tag: 'Enterprise',
-    description: 'A fully autonomous AI employee that handles customer support, qualifies leads, books appointments and integrates with your CRM — freeing your team to focus only on closing deals.',
-    bg: 'bg-gradient-to-br from-[#1f003d] to-[#0d001a]',
-    border: 'border-violet-500/30',
-    iconBg: 'bg-violet-500/15 border-violet-500/30',
-    iconColor: 'text-violet-400',
-    tagBg: 'bg-violet-500/15 text-violet-300 border-violet-500/30',
-    checkColor: 'text-violet-400',
-    ctaColor: 'text-violet-400',
-    theme: 'violet',
-    features: ['Customer Support Agent', 'Digital Sales Assistant', 'Lead Qualification', 'Booking Automation', 'CRM Integration'],
-  },
-  {
-    icon: Search,
-    title: 'Google SEO',
-    price: '₹8,999',
-    tag: 'Long-Term Growth',
-    description: 'Dominate Google search for your city and niche. We optimize your website, build authority backlinks, and get you appearing when potential customers are actively searching for your services.',
-    bg: 'bg-gradient-to-br from-[#2d1a00] to-[#1a0d00]',
-    border: 'border-amber-500/30',
-    iconBg: 'bg-amber-500/15 border-amber-500/30',
-    iconColor: 'text-amber-400',
-    tagBg: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
-    checkColor: 'text-amber-400',
-    ctaColor: 'text-amber-400',
-    theme: 'amber',
-    features: ['Keyword Research', 'Local SEO & Reviews', 'Competitor Analysis', 'Content Optimization', 'Monthly Reports'],
-  },
-  {
-    icon: Send,
-    title: 'Lead Generation',
-    price: '₹12,999',
-    tag: 'Revenue Boost',
-    description: 'Stop waiting for customers — we actively go find them for you. Targeted outreach campaigns across LinkedIn, email, and WhatsApp that deliver pre-qualified, high-intent business leads.',
-    bg: 'bg-gradient-to-br from-[#3d0015] to-[#1a0009]',
-    border: 'border-pink-500/30',
-    iconBg: 'bg-pink-500/15 border-pink-500/30',
-    iconColor: 'text-pink-400',
-    tagBg: 'bg-pink-500/15 text-pink-300 border-pink-500/30',
-    checkColor: 'text-pink-400',
-    ctaColor: 'text-pink-400',
-    theme: 'pink',
-    features: ['Prospect Research', 'LinkedIn Outreach', 'Cold Email Campaigns', 'WhatsApp Campaigns', 'Active Lead Tracking'],
-  },
-  {
-    icon: MapPin,
-    title: 'Google Business Profile',
-    price: '₹4,999',
-    tag: 'Local Visibility',
-    description: 'Get discovered by local customers searching "near me." We fully optimize your Google Business Profile to appear in Maps, improve your star ratings, and drive walk-in & call inquiries.',
-    bg: 'bg-gradient-to-br from-[#002d3d] to-[#001a24]',
-    border: 'border-cyan-500/30',
-    iconBg: 'bg-cyan-500/15 border-cyan-500/30',
-    iconColor: 'text-cyan-400',
-    tagBg: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
-    checkColor: 'text-cyan-400',
-    ctaColor: 'text-cyan-400',
-    theme: 'cyan',
-    features: ['Google Maps Top Ranking', 'Review Strategy', 'Profile Optimization', 'Local Visibility Boost'],
-  },
-  {
-    icon: Share2,
-    title: 'Social Media Automation',
-    price: '₹6,999',
-    tag: 'Brand Building',
-    description: 'Consistent, AI-generated content across Instagram, Facebook, LinkedIn and more — scheduled automatically. We build your brand presence so you can focus on running your business.',
-    bg: 'bg-gradient-to-br from-[#003d30] to-[#001a15]',
-    border: 'border-teal-500/30',
-    iconBg: 'bg-teal-500/15 border-teal-500/30',
-    iconColor: 'text-teal-400',
-    tagBg: 'bg-teal-500/15 text-teal-300 border-teal-500/30',
-    checkColor: 'text-teal-400',
-    ctaColor: 'text-teal-400',
-    theme: 'teal',
-    features: ['AI Content Creation', 'Multi-Channel Scheduling', 'Hashtag Research', 'Auto-Engagement', 'Analytics Dashboard'],
-  },
-  {
-    icon: Database,
-    title: 'CRM Setup & Automation',
-    price: '₹9,999',
-    tag: 'Sales System',
-    description: 'Organize all your leads, track every deal, and automate follow-ups in a powerful CRM. Know exactly which leads are hot, which need follow-up, and never let a sale fall through the cracks.',
-    bg: 'bg-gradient-to-br from-[#2d1400] to-[#1a0a00]',
-    border: 'border-orange-500/30',
-    iconBg: 'bg-orange-500/15 border-orange-500/30',
-    iconColor: 'text-orange-400',
-    tagBg: 'bg-orange-500/15 text-orange-300 border-orange-500/30',
-    checkColor: 'text-orange-400',
-    ctaColor: 'text-orange-400',
-    theme: 'orange',
-    features: ['HubSpot / Zoho / GHL', 'Pipeline Management', 'Lead Tracking', 'Workflow Automations', 'Notification Alerts'],
-  },
-  {
-    icon: PhoneCall,
-    title: 'AI Voice Calling Agents',
-    price: '₹19,999',
-    tag: 'Advanced AI',
-    description: 'An AI that actually calls your leads, qualifies them in natural conversation, books appointments and instantly routes hot prospects to your sales team. Outbound calling at scale — 24/7.',
-    bg: 'bg-gradient-to-br from-[#3d0010] to-[#1a0008]',
-    border: 'border-rose-500/30',
-    iconBg: 'bg-rose-500/15 border-rose-500/30',
-    iconColor: 'text-rose-400',
-    tagBg: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
-    checkColor: 'text-rose-400',
-    ctaColor: 'text-rose-400',
-    theme: 'rose',
-    features: ['Automated Outbound Calls', 'Lead Qualification Voice', 'Appointment Reminders', 'Multilingual Support', 'Instant Status Routing'],
-  },
-];
+import { servicesData } from '@/data/services';
 
 const cardV: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -204,7 +43,7 @@ export default function Services() {
           viewport={{ once: true, margin: '-40px' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
-          {services.map((s, i) => (
+          {servicesData.map((s, i) => (
             <motion.div
               key={i}
               variants={cardV}
@@ -256,11 +95,11 @@ export default function Services() {
 
               {/* CTA */}
               <Link
-                href="/contact"
+                href={`/services/${s.slug}`}
                 className="inline-flex items-center gap-1.5 text-xs font-bold group-hover:gap-2 transition-all"
                 style={{ color: 'var(--c-cta-color)' }}
               >
-                Get Started
+                Read More
                 <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </motion.div>
