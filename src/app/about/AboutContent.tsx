@@ -5,6 +5,7 @@ import { Users, Award, ShieldCheck, Target, Zap, Heart } from 'lucide-react';
 import WhyUs from '@/components/WhyUs';
 import Process from '@/components/Process';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const values = [
@@ -113,6 +114,59 @@ export default function AboutContent() {
               that replace manual processes with self-improving AI pipelines. We don't just build websites. We build customer acquisition machines."
             </p>
             <p className="mt-6 text-sm text-[--text-muted] font-semibold tracking-widest uppercase">— The oblue Team</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Founders */}
+      <section className="relative section-pad-sm bg-[--bg] overflow-hidden border-b border-[--border]">
+        <div className="container mx-auto max-w-[1200px] px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="badge mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+              Leadership
+            </span>
+            <h2 className="font-display font-black text-4xl md:text-5xl tracking-tight mb-5">
+              Meet the <span className="text-gradient-primary">Founders</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+            {/* Founder */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, type: 'spring', stiffness: 80, damping: 18 }}
+              className="flex flex-col items-center p-8 rounded-3xl border border-[--border] bg-[--surface-2] card-hover"
+            >
+              <div className="relative w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-[--border-strong] shadow-xl">
+                <Image src="/founder.jpg.png" alt="Sathyajith G S" fill className="object-cover" />
+              </div>
+              <h3 className="font-display font-bold text-2xl text-[--text-primary] mb-1">Sathyajith G S</h3>
+              <p className="text-indigo-400 font-semibold text-sm mb-4 tracking-wider uppercase">Founder & CEO</p>
+              <p className="text-center text-[--text-secondary] font-light leading-relaxed">
+                Visionary behind oblue. Combines deep expertise in automation and AI with a passion for helping businesses build scalable acquisition machines.
+              </p>
+            </motion.div>
+
+            {/* Co-Founder */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, type: 'spring', stiffness: 80, damping: 18 }}
+              className="flex flex-col items-center p-8 rounded-3xl border border-[--border] bg-[--surface-2] card-hover"
+            >
+              <div className="relative w-48 h-48 rounded-full overflow-hidden mb-6 border-4 border-[--border-strong] shadow-xl">
+                <Image src="/cofounder.jpg.png" alt="Ayaan" fill className="object-cover" />
+              </div>
+              <h3 className="font-display font-bold text-2xl text-[--text-primary] mb-1">Ayaan</h3>
+              <p className="text-emerald-400 font-semibold text-sm mb-4 tracking-wider uppercase">Co-Founder & CTO</p>
+              <p className="text-center text-[--text-secondary] font-light leading-relaxed">
+                The technical powerhouse. Expert in building autonomous systems, prompt engineering, and transforming complex workflows into seamless automated processes.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
